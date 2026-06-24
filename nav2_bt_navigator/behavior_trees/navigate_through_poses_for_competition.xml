@@ -1,0 +1,13 @@
+
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <PipelineSequence name="NavigateForCompetition">
+
+      <Head head_action="head_up"/>
+      <NavigateToPose goal="0.0" goal_x="6.0"  goal_y="0.0"  goal_yaw="0" behavior_tree=""/>
+      <Head head_action="head_down"/>
+      <NavigateToPose goal="0.0" goal_x="0.0"  goal_y="0.0"  goal_yaw="0" behavior_tree=""/>
+
+    </PipelineSequence>
+  </BehaviorTree>
+</root>
