@@ -56,9 +56,6 @@ public:
     return providedBasicPorts(
       {
         BT::InputPort<geometry_msgs::msg::PoseStamped>("goal", "Destination to plan to"),
-        BT::InputPort<double>("goal_x", "X coordinate of the goal"),
-        BT::InputPort<double>("goal_y", "Y coordinate of the goal"),
-        BT::InputPort<double>("goal_yaw", "yaw coordinate of the goal"),
         BT::InputPort<std::string>("behavior_tree", "Behavior tree to run"),
       });
   }

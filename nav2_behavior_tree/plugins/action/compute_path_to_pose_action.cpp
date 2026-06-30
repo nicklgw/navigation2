@@ -15,6 +15,8 @@
 #include <memory>
 #include <string>
 
+#include <tf2/LinearMath/Quaternion.h>
+
 #include "nav2_behavior_tree/plugins/action/compute_path_to_pose_action.hpp"
 
 namespace nav2_behavior_tree
@@ -35,8 +37,25 @@ void ComputePathToPoseAction::on_tick()
   if (getInput("start", goal_.start)) {
     goal_.use_start = true;
   }
-}
 
+  double goal_x = 0.0, goal_y = 0.0, goal_yaw = 0.0;
+  if (getInput("goal_x", goal_x) && getInput("goal_y", goal_y) && getInput("goal_yaw", goal_yaw)) 
+  {
+    goal_.goal.header.stamp = node_->now();
+    goal_.goal.header.frame_id = "map";
+    goal_.goal.pose.position.x = goal_x;
+    goal_.goal.pose.position.y = goal_y;
+    goal_.goal.pose.position.z = 0.0;
+
+    // Convert yaw to quaternion
+    tf2::Quaternion q;
+    q.setRPY(0.0, 0.0, goal_yaw);
+    goal_.goal.pose.orientation.x = q.x();
+    goal_.goal.pose.orientation.y = q.y();
+    goal_.goal.pose.orientation.z = q.z();
+    goal_.goal.pose.orientation.w = q.w();
+  }
+}
 BT::NodeStatus ComputePathToPoseAction::on_success()
 {
   setOutput("path", result_.result->path);
