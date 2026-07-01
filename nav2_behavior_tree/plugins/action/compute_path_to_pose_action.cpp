@@ -49,7 +49,7 @@ void ComputePathToPoseAction::on_tick()
 
     // Convert yaw to quaternion
     tf2::Quaternion q;
-    q.setRPY(0.0, 0.0, goal_yaw);
+    q.setRPY(0.0, 0.0, goal_yaw * M_PI / 180.0);
     goal_.goal.pose.orientation.x = q.x();
     goal_.goal.pose.orientation.y = q.y();
     goal_.goal.pose.orientation.z = q.z();
