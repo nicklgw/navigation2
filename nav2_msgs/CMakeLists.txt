@@ -45,6 +45,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "action/ComputeRoute.action"
   "action/ComputeAndTrackRoute.action"
   "action/DriveOnHeading.action"
+  "action/FollowVisionDistance.action"
   "action/SmoothPath.action"
   "action/FollowPath.action"
   "action/NavigateToPose.action"
