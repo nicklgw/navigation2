@@ -174,6 +174,12 @@ list(APPEND plugin_libs nav2_navigate_through_poses_action_bt_node)
 add_library(nav2_remove_passed_goals_action_bt_node SHARED plugins/action/remove_passed_goals_action.cpp)
 list(APPEND plugin_libs nav2_remove_passed_goals_action_bt_node)
 
+add_library(nav2_parse_coverage_goals_action_bt_node SHARED plugins/action/parse_coverage_goals_action.cpp)
+list(APPEND plugin_libs nav2_parse_coverage_goals_action_bt_node)
+
+add_library(nav2_pop_next_goal_node_bt_node SHARED plugins/action/pop_next_goal_node.cpp)
+list(APPEND plugin_libs nav2_pop_next_goal_node_bt_node)
+
 add_library(nav2_get_pose_from_path_action_bt_node SHARED plugins/action/get_pose_from_path_action.cpp)
 list(APPEND plugin_libs nav2_get_pose_from_path_action_bt_node)
 
